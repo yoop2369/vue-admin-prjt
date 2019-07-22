@@ -1,6 +1,8 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
+    <!-- left side nevigation -->
+    <LeftSideBar/>
+    <!-- <v-navigation-drawer
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
       fixed
@@ -65,7 +67,7 @@
           </v-list-tile>
         </template>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
     <v-toolbar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
       color="blue darken-3"
@@ -76,7 +78,7 @@
     <!-- 상단 toolbar  -->
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="hidden-sm-and-down">Google Contacts</span>
+        <span class="hidden-sm-and-down">Vuetify Admin</span>
       </v-toolbar-title>
       <v-text-field
         flat
@@ -200,18 +202,20 @@
 </template>
 
 <script>
-  import sideBarItems from './sideBar.js';
+  // import sideBarItems from './sideBar.js';
+  import LeftSideBar from './LeftSideBar.vue';
+
   export default {
     data: () => ({
       dialog: false,
       drawer: null,
-      items: sideBarItems
+      // items: sideBarItems
     }),
     props: {
       
     },
     components: {
-
+      LeftSideBar
     }
   }
 </script>
