@@ -78,17 +78,13 @@
 <script>
 import sideBarItems from './sideBarItems.js';
 
-export default {
+export default {  
   data: () => ({
-    items: sideBarItems,
-    drawer: null
+    items: sideBarItems
   }),
-  computed: {
-
-  },
-  // props: [
-  //   'drawer'
-  // ]
+  props: [
+    'drawer'
+  ]
   
 }
 </script>
