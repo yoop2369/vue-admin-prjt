@@ -14,10 +14,10 @@ const sideBarItems = [
         icon: 'keyboard_arrow_up',
               'icon-alt': 'keyboard_arrow_down',
         text: 'Inner Label_1',
-        model: true,
-        children: [
-          { icon: 'add', text: 'Inner Label_2' },
-        ]
+        // model: true,
+        // children: [
+        //   { icon: 'add', text: 'Inner Label_2' },
+        // ]
       }
     ]
   },
