@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <!-- left side bar -->
-    <left-side-bar v-model="drawer"/>
+    <left-side-bar drawer="drawer"/>
 
     <!-- 상단 toolbar -->
     <v-toolbar
