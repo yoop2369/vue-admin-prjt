@@ -1,8 +1,8 @@
 <template>
   <v-app id="inspire">
     <!-- left side bar -->
-    <left-side-bar @drawer="drawer"/>
-    
+    <left-side-bar :drawer="drawer"/>
+
     <!-- 상단 toolbar -->
     <v-toolbar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
@@ -11,11 +11,13 @@
       app
       fixed
     >
-    <!-- 상단 toolbar  -->
+      <!-- title area -->
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
         <span class="hidden-sm-and-down">Vuetify Admin</span>
       </v-toolbar-title>
+
+      <!-- search area -->
       <v-text-field
         flat
         solo-inverted
@@ -24,7 +26,11 @@
         label="Search"
         class="hidden-sm-and-down"
       ></v-text-field>
+
+      <!-- 여백 area -->
       <v-spacer></v-spacer>
+
+      <!-- icon area -->
       <v-btn icon>
         <v-icon>apps</v-icon>
       </v-btn>
@@ -40,26 +46,16 @@
         </v-avatar>
       </v-btn>
     </v-toolbar>
+    
     <v-content>
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
-          <v-tooltip right>
-            <template v-slot:activator="{ on }">
-              
-            </template>
-            <span>Source</span>
-          </v-tooltip>
-          <v-tooltip right>
-            <template v-slot:activator="{ on }">
-              <v-btn icon large href="https://codepen.io/johnjleider/pen/EQOYVV" target="_blank" v-on="on">
-                <v-icon large>mdi-codepen</v-icon>
-              </v-btn>
-            </template>
-            <span>Codepen</span>
-          </v-tooltip>
+          빈 공간
         </v-layout>
       </v-container>
     </v-content>
+    
+    <!-- 하단 FAB(Floating Action Button) 버튼 -->
     <v-btn
       fab
       bottom
@@ -71,7 +67,11 @@
     >
       <v-icon>add</v-icon>
     </v-btn>
-    <v-dialog v-model="dialog" width="800px">
+
+    <!-- Contact card -->
+    <user-form :dialog="dialog"/>
+
+    <!-- <v-dialog v-model="dialog" width="800px">
       <v-card>
         <v-card-title
           class="grey lighten-4 py-4 title"
@@ -133,30 +133,38 @@
           <v-btn flat @click="dialog = false">Save</v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
+
+
   </v-app>
 </template>
 
 <script>
-  import sideBarItems from './sideBarItems.js';
-  import LeftSideBar from './LeftSideBar.vue';
-
   
+  import LeftSideBar from './LeftSideBar.vue';
+  import UserForm from '../components/UserForm.vue';
+
   export default {
     data: () => ({
-      dialog: false,
-      items: sideBarItems,
-      drawer: LeftSideBar.drawer
+      drawer: true,
+      dialog: false
     }),
-    watch: {
-      
+    methods: {
+      toggle: function() {
+        alert(this.dialog)
+        this.dialog = !this.dialog
+      }
     },
-    // props: [
-    //   'drawer'
-    // ],
     components: {
-      LeftSideBar
-    }
+      LeftSideBar,
+      UserForm 
+    },
+    // props: {
+    //   dialog: {
+    //     type: Boolean,
+    //     required: true
+    //   }
+    // }
   }
 
   

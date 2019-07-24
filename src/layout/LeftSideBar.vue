@@ -1,10 +1,4 @@
 <template>
-  <!-- <v-navigation-drawer
-    v-model="drawer"
-    :clipped="$vuetify.breakpoint.lgAndUp"
-    fixed
-    app
-  > -->
   <v-navigation-drawer
     v-model="drawer"
     :clipped="$vuetify.breakpoint.lgAndUp"
@@ -80,13 +74,22 @@ import sideBarItems from './sideBarItems.js';
 
 export default {  
   data: () => ({
-    items: sideBarItems
+    items: sideBarItems,
   }),
-  props: [
-    'drawer'
-  ]
+  computed: {
+  },
+  props: {
+    drawer: {
+      type: Boolean,
+      required: true
+    }
+  }
+
+  // 기존 것
+  // props: [
+  //   'drawer'
+  // ]
   
 }
 </script>
-
 
