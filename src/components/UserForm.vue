@@ -1,5 +1,4 @@
 <template>
-  <!-- <v-dialog v-model="dialog" width="800px" persistent> -->
   <v-dialog v-model="dialog" width="800px">
     <v-card>
       <v-card-title
@@ -58,10 +57,8 @@
       <v-card-actions>
         <v-btn flat color="primary">More</v-btn>
         <v-spacer></v-spacer>
-        <!-- <v-btn flat color="primary" @click="dialog = !dialog">Cancel</v-btn>
-        <v-btn flat @click="dialog = !dialog">Save</v-btn> -->
-        <!-- <v-btn flat color="primary" @click="toggle()">Cancel</v-btn>
-        <v-btn flat @click="toggle()">Save</v-btn> -->
+        <v-btn flat @click="closeDialog()">Cancel</v-btn>
+        <!-- <v-btn flat @click="dialog = !dialog">Save</v-btn> -->
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -73,16 +70,12 @@ export default {
     
   }),
   methods: {
-    toggle: function() {
-      this.dialog = !this.dialog
+     closeDialog () {
+        this.$emit('closeDialog');
+      }
     }
   },
   computed: {
-    sendEvent: function() {
-      return {
-        dialog : this.dialog
-      }
-    }
   },
   props: {
     dialog: {
