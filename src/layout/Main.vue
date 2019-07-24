@@ -69,7 +69,7 @@
     </v-btn>
 
     <!-- Contact card -->
-    <user-form :dialog="dialog"/>
+    <user-form :dialog="dialog" @closeDialog="toggle" />
 
     <!-- <v-dialog v-model="dialog" width="800px">
       <v-card>
