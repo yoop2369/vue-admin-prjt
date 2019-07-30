@@ -1,9 +1,7 @@
 <template>
-  <v-dialog v-model="dialog" width="800px">
+  <v-dialog v-model="dialog" width="800px" persistent>
     <v-card>
-      <v-card-title
-        class="grey lighten-4 py-4 title"
-      >
+      <v-card-title class="grey lighten-4 py-4 title">
         Create contact
       </v-card-title>
       <v-container grid-list-sm class="pa-4">
@@ -67,12 +65,10 @@
 <script>
 export default {
   data: () => ({
-    
   }),
   methods: {
-     closeDialog () {
-        this.$emit('closeDialog');
-      }
+    closeDialog () {
+      this.$emit('closeDialog')
     }
   },
   computed: {
@@ -85,4 +81,3 @@ export default {
   }
 }
 </script>
-

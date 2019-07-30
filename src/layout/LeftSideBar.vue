@@ -28,6 +28,7 @@
           v-model="item.model"
           :prepend-icon="item.model ? item.icon : item['icon-alt']"
           append-icon=""
+          value="true"
         >
           <template v-slot:activator>
             <v-list-tile>
@@ -41,12 +42,21 @@
           <v-list-tile
             v-for="(child, i) in item.children"
             :key="i"
+            link
           >
             <v-list-tile-action v-if="child.icon">
               <v-icon>{{ child.icon }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>
+              <v-list-tile-title v-if="child.pageId != null">
+                <!-- <button  @click="pageChg(child.pageId)">
+                  {{ child.text }}
+                </button> -->
+                <router-link :to="{name: child.pageId, params: {pages, visibled, totalCnt, gridCnt}}" class="link">
+                  {{ child.text }}
+                </router-link>
+              </v-list-tile-title>
+              <v-list-tile-title v-if="child.pageId === undefined">
                 {{ child.text }}
               </v-list-tile-title>
             </v-list-tile-content>
@@ -57,7 +67,12 @@
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>
+            <v-list-tile-title v-if="item.pageId != null">
+              <router-link :to="item.pageId" class="link">
+                {{ item.text }}
+              </router-link>
+            </v-list-tile-title>
+            <v-list-tile-title v-if="item.pageId === undefined">
               {{ item.text }}
             </v-list-tile-title>
           </v-list-tile-content>
@@ -75,7 +90,16 @@ import sideBarItems from './sideBarItems.js';
 export default {  
   data: () => ({
     items: sideBarItems,
+    pages: 2,
+    visibled: 7,
+    totalCnt: 20,
+    gridCnt: 6
   }),
+  methods: {
+    pageChg (id) {
+      this.$emit('pageChg', id)
+    }
+  },
   computed: {
   },
   props: {
@@ -84,12 +108,14 @@ export default {
       required: true
     }
   }
-
-  // 기존 것
-  // props: [
-  //   'drawer'
-  // ]
-  
 }
 </script>
 
+<style>
+.link:active {
+  background-color: aquamarine
+}
+.link:link .link:visited{
+  color: rgb(218, 196, 77)
+}
+</style>
