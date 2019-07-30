@@ -1,5 +1,5 @@
 const sideBarItems = [
-  { icon: 'contacts', text: '사용자관리 메뉴' },
+  { icon: 'contacts', text: '사용자관리 메뉴', pageId: '/' },
   { icon: 'history', text: '사이트 이력' },
   { icon: 'g_translate', text: '언어변경' },
   {
@@ -8,7 +8,7 @@ const sideBarItems = [
     text: 'Main Label',
     model: true,
     children: [
-      { icon: 'add', text: 'Inner Label_1' },
+      { icon: 'contacts', text: '사용자 목록', pageId: 'userList' },
       // inner depth 2 동작 안됨 원인 찾기
       {
         icon: 'keyboard_arrow_up',
