@@ -1,7 +1,7 @@
 const sideBarItems = [
   { icon: 'contacts', text: '사용자관리 메뉴', pageId: '/' },
-  { icon: 'history', text: '사이트 이력' },
-  { icon: 'g_translate', text: '언어변경' },
+  { icon: 'history', text: '사이트 이력' , pageId: '/post'},
+  { icon: 'g_translate', text: '언어변경', pageId: '/userForm' },
   {
     icon: 'keyboard_arrow_up',
     'icon-alt': 'keyboard_arrow_down',

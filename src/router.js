@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-// import UserList from '@/router/mainLabel.js'
-// import UserList from '@/components/mainLabel/UserList'
-import About from './views/About.vue'
 import Main from './layout/Main.vue';
 import UserList from '@/components/mainLabel/UserList.vue'
+import Post from '@/components/mainLabel/Post.vue'
+import DataBinding from '@/components/test/DataBinding.vue'
+import UserForm from '@/components/test/UserForm.vue'
 
 Vue.use(Router);
 
@@ -29,8 +29,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      // component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-      component: About,
+      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     // ...UserList
     {
@@ -39,5 +38,20 @@ export default new Router({
       component: UserList,
       props: true
     },
+    {
+      path: '/post',
+      name: 'post',
+      component: Post
+    },
+    {
+      path: '/dataBinding',
+      name: 'binding',
+      component: DataBinding
+    },
+    {
+      path: '/userForm',
+      name: 'userForm',
+      component: UserForm
+    }
   ],
 });
